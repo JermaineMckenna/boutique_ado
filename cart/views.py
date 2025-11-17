@@ -3,22 +3,21 @@ from products.models import Product
 
 def view_cart(request):
     cart = request.session.get('cart', {})
-    items = []
+    products = []
     total = 0
 
     for item_id, quantity in cart.items():
-        product = get_object_or_404(Product, pk=item_id)
+        product = Product.objects.get(pk=item_id)
         subtotal = product.price * quantity
         total += subtotal
-
-        items.append({
+        products.append({
             'product': product,
             'quantity': quantity,
-            'subtotal': subtotal,
+            'subtotal': subtotal
         })
 
     return render(request, 'cart/cart.html', {
-        'items': items,
+        'products': products,
         'total': total,
     })
 
@@ -38,12 +37,11 @@ def remove_from_cart(request, product_id):
 
 
 def update_cart(request, product_id):
-    new_qty = int(request.POST.get('quantity', 1))
-
+    quantity = int(request.POST.get('quantity', 1))
     cart = request.session.get('cart', {})
 
-    if new_qty > 0:
-        cart[str(product_id)] = new_qty
+    if quantity > 0:
+        cart[str(product_id)] = quantity
     else:
         cart.pop(str(product_id), None)
 

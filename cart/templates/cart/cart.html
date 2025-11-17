@@ -1,40 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container mt-4">
+<div class="container py-4">
 
-    <h2>Your Shopping Cart</h2>
-    <hr>
+    <h2 class="mb-4 text-center">Your Cart</h2>
 
-    {% if items %}
-    <table class="table table-striped">
-        <thead>
+    {% if products %}
+    <table class="table table-bordered align-middle shadow-sm">
+        <thead class="table-dark">
             <tr>
-                <th>Product</th>
-                <th class="text-center">Quantity</th>
-                <th class="text-end">Subtotal</th>
-                <th></th>
+                <th scope="col">Product</th>
+                <th scope="col" class="text-center">Qty</th>
+                <th scope="col" class="text-end">Price</th>
+                <th scope="col" class="text-end">Subtotal</th>
+                <th scope="col" class="text-center">Actions</th>
             </tr>
         </thead>
+
         <tbody>
-            {% for item in items %}
+            {% for item in products %}
             <tr>
-                <td>{{ item.product.name }}</td>
+                <td>
+                    <strong>{{ item.product.name }}</strong><br>
+                    <small class="text-muted">{{ item.product.description }}</small>
+                </td>
 
                 <td class="text-center">
-                    <form method="POST" action="{% url 'update_cart' item.product.id %}">
+                    <!-- Quantity Update Form -->
+                    <form action="{% url 'update_cart' item.product.id %}" method="POST" class="d-inline-block">
                         {% csrf_token %}
-                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
-                               class="form-control text-center" style="width:80px; display:inline;">
-                        <button class="btn btn-sm btn-primary mt-1">Update</button>
+                        <input type="number"
+                               name="quantity"
+                               value="{{ item.quantity }}"
+                               min="1"
+                               class="form-control w-50 d-inline-block text-center">
+                        <button class="btn btn-sm btn-outline-dark mt-1" type="submit">Update</button>
                     </form>
                 </td>
 
+                <td class="text-end">£{{ item.product.price }}</td>
                 <td class="text-end">£{{ item.subtotal }}</td>
 
-                <td>
-                    <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-danger btn-sm">
-                        Remove
+                <td class="text-center">
+                    <a href="{% url 'remove_from_cart' item.product.id %}"
+                       class="btn btn-sm btn-danger">
+                       Remove
                     </a>
                 </td>
             </tr>
@@ -42,15 +52,21 @@
         </tbody>
     </table>
 
-    <h4 class="text-end">Total: <strong>£{{ total }}</strong></h4>
-
-    <div class="text-end mt-3">
-        <a href="{% url 'checkout' %}" class="btn btn-success btn-lg">Proceed to Checkout</a>
+    <!-- Cart Total -->
+    <div class="text-end mt-4">
+        <h3>Total: £{{ total }}</h3>
+        <a href="{% url 'checkout' %}" class="btn btn-success btn-lg mt-3">
+            Proceed to Checkout
+        </a>
     </div>
 
     {% else %}
-    <p>Your cart is empty.</p>
-    <a href="{% url 'products' %}" class="btn btn-dark">Back to Products</a>
+
+        <div class="text-center py-5">
+            <h4>Your cart is currently empty.</h4>
+            <a href="{% url 'products' %}" class="btn btn-dark mt-3">Browse Products</a>
+        </div>
+
     {% endif %}
 
 </div>

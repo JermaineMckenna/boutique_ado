@@ -1,23 +1,83 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
 
-<div class="container py-5">
-
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <h1 class="display-4 fw-bold">Premium Clothing Store</h1>
-            <p class="lead">
-                Discover stylish apparel, exceptional quality, and unbeatable comfort.
-            </p>
-            <a href="{% url 'products' %}" class="btn btn-dark btn-lg">Shop Now</a>
-        </div>
-
-        <div class="col-md-6 text-center">
-            <img src="https://via.placeholder.com/500x400?text=Fashion+Banner" 
-                 class="img-fluid rounded shadow">
-        </div>
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero-section text-center text-white d-flex align-items-center justify-content-center"
+         style="height: 65vh; background: url('https://via.placeholder.com/1600x700?text=Boutique+Ado+Fashion') center/cover no-repeat;">
+    <div class="bg-dark bg-opacity-50 p-5 rounded">
+        <h1 class="display-4 fw-bold">Style. Comfort. Confidence.</h1>
+        <p class="lead mt-3">Discover premium clothing designed for modern everyday life.</p>
+        <a href="{% url 'products' %}" class="btn btn-light btn-lg mt-3 px-4">
+            Shop Now
+        </a>
     </div>
+</section>
 
-</div>
+<!-- ===================== FEATURED CATEGORIES ===================== -->
+<section class="container py-5">
+    <h2 class="text-center mb-4">Shop by Category</h2>
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <a href="/products/?category=tshirts" class="text-decoration-none text-dark">
+                <div class="category-card shadow-sm rounded overflow-hidden">
+                    <img src="https://via.placeholder.com/500x350?text=T-Shirts" class="img-fluid">
+                    <h4 class="text-center py-3">T-Shirts</h4>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/products/?category=hoodies" class="text-decoration-none text-dark">
+                <div class="category-card shadow-sm rounded overflow-hidden">
+                    <img src="https://via.placeholder.com/500x350?text=Hoodies" class="img-fluid">
+                    <h4 class="text-center py-3">Hoodies</h4>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/products/?category=jackets" class="text-decoration-none text-dark">
+                <div class="category-card shadow-sm rounded overflow-hidden">
+                    <img src="https://via.placeholder.com/500x350?text=Jackets" class="img-fluid">
+                    <h4 class="text-center py-3">Jackets</h4>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== TRENDING PRODUCTS ===================== -->
+<section class="container py-5">
+    <h2 class="text-center mb-4">Trending Picks</h2>
+    <div class="row">
+
+        {% for product in trending %}
+        <div class="col-md-3 col-6 mb-4">
+            <div class="card h-100 shadow-sm">
+
+                {% if product.image_url %}
+                <img src="{{ product.image_url }}" class="card-img-top">
+                {% else %}
+                <img src="https://via.placeholder.com/600x600?text=No+Image" class="card-img-top">
+                {% endif %}
+
+                <div class="card-body text-center">
+                    <h5 class="card-title small">{{ product.name }}</h5>
+                    <p class="text-muted mb-1">£{{ product.price }}</p>
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-dark btn-sm w-100">
+                        View
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
 
 {% endblock %}

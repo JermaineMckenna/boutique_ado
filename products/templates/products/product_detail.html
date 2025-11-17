@@ -5,33 +5,29 @@
 
     <div class="row">
 
-        <!-- Product Image -->
-        <div class="col-md-6 mb-4">
+        <!-- IMAGE -->
+        <div class="col-md-6 text-center">
             {% if product.image_url %}
-                <img src="{{ product.image_url }}" class="img-fluid rounded shadow">
+                <img src="{{ product.image_url }}" class="img-fluid rounded shadow-sm">
             {% elif product.image %}
-                <img src="{{ product.image.url }}" class="img-fluid rounded shadow">
+                <img src="{{ product.image.url }}" class="img-fluid rounded shadow-sm">
             {% else %}
-                <img src="https://via.placeholder.com/600x600?text=No+Image" class="img-fluid rounded shadow">
+                <img src="https://via.placeholder.com/600x600?text=No+Image" class="img-fluid rounded shadow-sm">
             {% endif %}
         </div>
 
-        <!-- Product Info -->
+        <!-- PRODUCT DETAILS -->
         <div class="col-md-6">
-            <h2 class="mb-3">{{ product.name }}</h2>
 
-            <h4 class="text-dark mb-3">£{{ product.price }}</h4>
+            <h2 class="fw-bold">{{ product.name }}</h2>
+            <p class="text-muted">{{ product.description }}</p>
 
-            <p class="text-muted mb-4">{{ product.description }}</p>
+            <h3 class="text-dark fw-semibold mb-4">£{{ product.price }}</h3>
 
-            <a href="{% url 'add_to_cart' product.id %}" 
-               class="btn btn-dark btn-lg w-100 mb-3">
-               Add to Cart
+            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success btn-lg w-100">
+                Add to Cart
             </a>
 
-            <a href="{% url 'products' %}" class="btn btn-outline-secondary w-100">
-               Back to Products
-            </a>
         </div>
 
     </div>
@@ -39,3 +35,5 @@
 </div>
 
 {% endblock %}
+
+
