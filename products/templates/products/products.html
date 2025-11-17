@@ -23,11 +23,18 @@
                     <p class="text-muted mb-1">£{{ product.price }}</p>
                 </div>
 
-                <div class="card-footer bg-white border-0">
+                <div class="card-footer bg-white border-0 d-grid gap-2">
+
                     <a href="{% url 'product_detail' product.id %}" 
-                       class="btn btn-dark btn-block w-100">
+                       class="btn btn-outline-dark w-100 mb-2">
                         View Product
                     </a>
+
+                    <a href="{% url 'add_to_cart' product.id %}" 
+                       class="btn btn-dark w-100">
+                        Add to Cart
+                    </a>
+
                 </div>
 
             </div>

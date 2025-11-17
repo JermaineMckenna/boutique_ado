@@ -1,14 +1,23 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<div class="container text-center py-5">
-    <h1 class="display-4 fw-bold">Welcome to Boutique Ado</h1>
-    <p class="lead mb-4">Premium clothing, modern style, affordable prices.</p>
+<div class="container py-5">
 
-    <a href="{% url 'products' %}" class="btn btn-dark btn-lg">
-        Shop Now
-    </a>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4 fw-bold">Premium Clothing Store</h1>
+            <p class="lead">
+                Discover stylish apparel, exceptional quality, and unbeatable comfort.
+            </p>
+            <a href="{% url 'products' %}" class="btn btn-dark btn-lg">Shop Now</a>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="https://via.placeholder.com/500x400?text=Fashion+Banner" 
+                 class="img-fluid rounded shadow">
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}
