@@ -2,58 +2,33 @@
   {
     "model": "products.category",
     "pk": 1,
-    "fields": {
-      "name": "tshirts",
-      "friendly_name": "T-Shirts"
-    }
+    "fields": { "name": "T-Shirts", "friendly_name": "T-Shirts" }
   },
   {
     "model": "products.category",
     "pk": 2,
-    "fields": {
-      "name": "hoodies",
-      "friendly_name": "Hoodies"
-    }
+    "fields": { "name": "Hoodies", "friendly_name": "Hoodies" }
   },
   {
     "model": "products.category",
     "pk": 3,
-    "fields": {
-      "name": "jackets",
-      "friendly_name": "Jackets"
-    }
+    "fields": { "name": "Jackets", "friendly_name": "Jackets" }
   },
   {
     "model": "products.category",
     "pk": 4,
-    "fields": {
-      "name": "jeans",
-      "friendly_name": "Jeans"
-    }
+    "fields": { "name": "Sweatshirts", "friendly_name": "Sweatshirts" }
   },
-  {
-    "model": "products.category",
-    "pk": 5,
-    "fields": {
-      "name": "accessories",
-      "friendly_name": "Accessories"
-    }
-  },
-
-
 
   {
     "model": "products.product",
     "pk": 1,
     "fields": {
       "category": 1,
-      "sku": "TSH-001",
-      "name": "Classic White T-Shirt",
-      "description": "Soft premium cotton t-shirt with a relaxed unisex fit.",
+      "name": "Plain White T-Shirt",
+      "description": "High-quality classic white tee.",
       "price": "14.99",
-      "rating": 4.5,
-      "image_url": "https://via.placeholder.com/600x600?text=White+T-Shirt",
-      "image": null
+      "image": "products/plainwhitetshirt.jpg"
     }
   },
   {
@@ -61,13 +36,10 @@
     "pk": 2,
     "fields": {
       "category": 1,
-      "sku": "TSH-002",
-      "name": "Black Graphic Tee",
-      "description": "Bold graphic tee designed for everyday streetwear style.",
+      "name": "Black Graphic T-Shirt",
+      "description": "Modern graphic tee with premium fit.",
       "price": "18.99",
-      "rating": 4.7,
-      "image_url": "https://via.placeholder.com/600x600?text=Graphic+Tee",
-      "image": null
+      "image": "products/blackgraphictshirt.jpg"
     }
   },
   {
@@ -75,42 +47,33 @@
     "pk": 3,
     "fields": {
       "category": 1,
-      "sku": "TSH-003",
-      "name": "Navy Essential Tee",
-      "description": "Comfortable and durable. Your new everyday favourite.",
-      "price": "16.49",
-      "rating": 4.4,
-      "image_url": "https://via.placeholder.com/600x600?text=Navy+Tee",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 4,
-    "fields": {
-      "category": 1,
-      "sku": "TSH-004",
-      "name": "Olive Green Tee",
-      "description": "Relaxed fit olive tee for a modern streetwear look.",
-      "price": "15.99",
-      "rating": 4.3,
-      "image_url": "https://via.placeholder.com/600x600?text=Olive+Tee",
-      "image": null
+      "name": "Navy Blue T-Shirt",
+      "description": "Soft cotton navy t-shirt.",
+      "price": "16.99",
+      "image": "products/navybluetshirt.jpg"
     }
   },
 
   {
     "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Grey Hoodie",
+      "description": "Casual grey hoodie for everyday wear.",
+      "price": "29.99",
+      "image": "products/greyhoodieproduct.jpg"
+    }
+  },
+  {
+    "model": "products.product",
     "pk": 5,
     "fields": {
       "category": 2,
-      "sku": "HOD-001",
-      "name": "Grey Pullover Hoodie",
-      "description": "Soft fleece hoodie perfect for colder days.",
+      "name": "Black Zip Hoodie",
+      "description": "Warm and stylish full-zip black hoodie.",
       "price": "34.99",
-      "rating": 4.8,
-      "image_url": "https://via.placeholder.com/600x600?text=Grey+Hoodie",
-      "image": null
+      "image": "products/blackziphoodie.jpg"
     }
   },
   {
@@ -118,213 +81,56 @@
     "pk": 6,
     "fields": {
       "category": 2,
-      "sku": "HOD-002",
-      "name": "Black Zip Hoodie",
-      "description": "Classic black zip hoodie with premium trims.",
+      "name": "Oversized Beige Hoodie",
+      "description": "Premium oversized beige hoodie.",
       "price": "39.99",
-      "rating": 4.6,
-      "image_url": "https://via.placeholder.com/600x600?text=Black+Zip+Hoodie",
-      "image": null
+      "image": "products/oversizedbeigehoodie.jpg"
     }
   },
+
   {
     "model": "products.product",
     "pk": 7,
     "fields": {
-      "category": 2,
-      "sku": "HOD-003",
-      "name": "Oversized Sand Hoodie",
-      "description": "Modern oversized hoodie with a relaxed fit.",
-      "price": "44.99",
-      "rating": 4.7,
-      "image_url": "https://via.placeholder.com/600x600?text=Sand+Hoodie",
-      "image": null
+      "category": 3,
+      "name": "Denim Jacket",
+      "description": "Classic denim jacket with modern fit.",
+      "price": "49.99",
+      "image": "products/denimjacketisolated.jpg"
     }
   },
   {
     "model": "products.product",
     "pk": 8,
     "fields": {
-      "category": 2,
-      "sku": "HOD-004",
-      "name": "Brown Heavyweight Hoodie",
-      "description": "Thick premium hoodie, built for warmth and durability.",
-      "price": "49.99",
-      "rating": 4.9,
-      "image_url": "https://via.placeholder.com/600x600?text=Brown+Hoodie",
-      "image": null
+      "category": 3,
+      "name": "Black Puffer Jacket",
+      "description": "Warm insulated black puffer jacket.",
+      "price": "69.99",
+      "image": "products/blackpufferjacket.jpg"
     }
   },
-
   {
     "model": "products.product",
     "pk": 9,
     "fields": {
       "category": 3,
-      "sku": "JCK-001",
-      "name": "Denim Jacket",
-      "description": "Timeless denim jacket with a modern fit.",
+      "name": "Black Bomber Jacket",
+      "description": "Premium bomber jacket for everyday wear.",
       "price": "59.99",
-      "rating": 4.5,
-      "image_url": "https://via.placeholder.com/600x600?text=Denim+Jacket",
-      "image": null
+      "image": "products/blackbomberjacket.jpg"
     }
   },
+
   {
     "model": "products.product",
     "pk": 10,
     "fields": {
-      "category": 3,
-      "sku": "JCK-002",
-      "name": "Black Bomber Jacket",
-      "description": "Lightweight bomber jacket with ribbed cuffs.",
-      "price": "54.99",
-      "rating": 4.4,
-      "image_url": "https://via.placeholder.com/600x600?text=Bomber+Jacket",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 11,
-    "fields": {
-      "category": 3,
-      "sku": "JCK-003",
-      "name": "Puffer Jacket",
-      "description": "Warm insulated jacket ideal for cold weather.",
-      "price": "79.99",
-      "rating": 4.8,
-      "image_url": "https://via.placeholder.com/600x600?text=Puffer+Jacket",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 12,
-    "fields": {
-      "category": 3,
-      "sku": "JCK-004",
-      "name": "Green Utility Jacket",
-      "description": "Military-inspired utility jacket with pockets.",
-      "price": "69.99",
-      "rating": 4.6,
-      "image_url": "https://via.placeholder.com/600x600?text=Utility+Jacket",
-      "image": null
-    }
-  },
-
-  {
-    "model": "products.product",
-    "pk": 13,
-    "fields": {
       "category": 4,
-      "sku": "JNS-001",
-      "name": "Slim Fit Jeans",
-      "description": "Modern slim fit jeans with stretch comfort.",
-      "price": "44.99",
-      "rating": 4.7,
-      "image_url": "https://via.placeholder.com/600x600?text=Slim+Jeans",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 14,
-    "fields": {
-      "category": 4,
-      "sku": "JNS-002",
-      "name": "Regular Fit Jeans",
-      "description": "Classic denim fit, comfortable and durable.",
-      "price": "39.99",
-      "rating": 4.3,
-      "image_url": "https://via.placeholder.com/600x600?text=Regular+Jeans",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 15,
-    "fields": {
-      "category": 4,
-      "sku": "JNS-003",
-      "name": "Black Stretch Jeans",
-      "description": "Soft stretch denim with a slim tapered cut.",
-      "price": "49.99",
-      "rating": 4.6,
-      "image_url": "https://via.placeholder.com/600x600?text=Black+Jeans",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 16,
-    "fields": {
-      "category": 4,
-      "sku": "JNS-004",
-      "name": "Light Blue Washed Jeans",
-      "description": "Faded wash denim with a relaxed tapered fit.",
-      "price": "42.99",
-      "rating": 4.2,
-      "image_url": "https://via.placeholder.com/600x600?text=Washed+Jeans",
-      "image": null
-    }
-  },
-
-  {
-    "model": "products.product",
-    "pk": 17,
-    "fields": {
-      "category": 5,
-      "sku": "ACS-001",
-      "name": "Classic Baseball Cap",
-      "description": "Adjustable cotton cap with curved brim.",
-      "price": "14.99",
-      "rating": 4.4,
-      "image_url": "https://via.placeholder.com/600x600?text=Cap",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 18,
-    "fields": {
-      "category": 5,
-      "sku": "ACS-002",
-      "name": "Knitted Scarf",
-      "description": "Soft knitted scarf perfect for cold weather.",
-      "price": "19.99",
-      "rating": 4.8,
-      "image_url": "https://via.placeholder.com/600x600?text=Scarf",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 19,
-    "fields": {
-      "category": 5,
-      "sku": "ACS-003",
-      "name": "Brown Leather Belt",
-      "description": "Premium genuine leather belt with silver buckle.",
-      "price": "24.99",
-      "rating": 4.5,
-      "image_url": "https://via.placeholder.com/600x600?text=Leather+Belt",
-      "image": null
-    }
-  },
-  {
-    "model": "products.product",
-    "pk": 20,
-    "fields": {
-      "category": 5,
-      "sku": "ACS-004",
-      "name": "Black Beanie",
-      "description": "Warm ribbed knit beanie hat for winter.",
-      "price": "12.99",
-      "rating": 4.6,
-      "image_url": "https://via.placeholder.com/600x600?text=Beanie",
-      "image": null
+      "name": "Plain Crewneck Sweatshirt",
+      "description": "Classic crewneck sweatshirt in premium cotton.",
+      "price": "27.99",
+      "image": "products/plaincrewnecksweatshirt.jpg"
     }
   }
 ]
-
