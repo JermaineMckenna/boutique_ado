@@ -1,0 +1,96 @@
+[
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "tshirts",
+      "friendly_name": "T-Shirts"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+      "name": "hoodies",
+      "friendly_name": "Hoodies"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "jackets",
+      "friendly_name": "Jackets"
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+      "name": "jeans",
+      "friendly_name": "Jeans"
+    }
+  },
+
+
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "sku": "TSH-001",
+      "name": "Classic White T-Shirt",
+      "description": "Soft cotton unisex t-shirt.",
+      "price": "12.99",
+      "rating": 4.3,
+      "image_url": "https://via.placeholder.com/600x600?text=White+T-Shirt",
+      "image": null
+    }
+  },
+
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "sku": "HOD-001",
+      "name": "Grey Hoodie",
+      "description": "Comfort-fit pullover hoodie.",
+      "price": "29.99",
+      "rating": 4.7,
+      "image_url": "https://via.placeholder.com/600x600?text=Grey+Hoodie",
+      "image": null
+    }
+  },
+
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "sku": "JCK-001",
+      "name": "Black Bomber Jacket",
+      "description": "Premium lightweight bomber jacket.",
+      "price": "59.99",
+      "rating": 4.8,
+      "image_url": "https://via.placeholder.com/600x600?text=Bomber+Jacket",
+      "image": null
+    }
+  },
+
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "category": 4,
+      "sku": "JNS-001",
+      "name": "Slim Fit Jeans",
+      "description": "Stretch denim slim fit jeans.",
+      "price": "39.99",
+      "rating": 4.5,
+      "image_url": "https://via.placeholder.com/600x600?text=Slim+Jeans",
+      "image": null
+    }
+  }
+
+]

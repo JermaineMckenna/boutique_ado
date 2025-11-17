@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container text-center py-5">
+    <h1 class="display-4 fw-bold">Welcome to Boutique Ado</h1>
+    <p class="lead mb-4">Premium clothing, modern style, affordable prices.</p>
+
+    <a href="{% url 'products' %}" class="btn btn-dark btn-lg">
+        Shop Now
+    </a>
+</div>
+
+{% endblock %}
