@@ -3,6 +3,39 @@
 
 {% block content %}
 
+<style>
+    /* CATEGORY IMAGE */
+    .category-card img {
+        transition: transform 0.4s ease;
+        height: 260px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .category-card:hover img {
+        transform: scale(1.05);
+    }
+
+    /* TRENDING CARD EFFECT */
+    .trending-card {
+        transition: all 0.3s ease;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+    .trending-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .trending-card img {
+        height: 260px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .trending-card:hover img {
+        transform: scale(1.07);
+    }
+</style>
+
 <!-- ===================== HERO SECTION ===================== -->
 <section class="hero-section text-center text-white d-flex align-items-center justify-content-center"
          style="height: 65vh; background: url('{% static "images/hero.jpg" %}') center/cover no-repeat;">
@@ -17,7 +50,12 @@
 
 <!-- ===================== FEATURED CATEGORIES ===================== -->
 <section class="container py-5">
-    <h2 class="text-center mb-4">Shop by Category</h2>
+
+    <h2 class="text-center mb-1">Shop by Category</h2>
+    <p class="text-center text-muted small mb-4">
+        Designed & Developed by <strong>Jermaine McKenna</strong>
+    </p>
+
     <div class="row g-4">
 
         <div class="col-md-4">
@@ -50,34 +88,63 @@
     </div>
 </section>
 
-<!-- ===================== TRENDING PRODUCTS ===================== -->
+<!-- ===================== TRENDING PICKS ===================== -->
 <section class="container py-5">
-    <h2 class="text-center mb-4">Trending Picks</h2>
-    <div class="row">
 
-        {% for product in trending %}
-        <div class="col-md-3 col-6 mb-4">
-            <div class="card h-100 shadow-sm">
+    <h2 class="text-center mb-1">Trending Picks</h2>
+    <p class="text-center text-muted small mb-4">
+        Designed & Developed by <strong>Jermaine McKenna</strong>
+    </p>
 
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top">
-                {% else %}
-                    <img src="{% static 'images/no-image.jpg' %}" class="card-img-top">
-                {% endif %}
+    <div class="row g-4">
 
+        <!-- ITEM 1 -->
+        <div class="col-md-3 col-6">
+            <div class="card trending-card shadow-sm">
+                <img src="{% static 'images/slimfitjeans.jpg' %}" alt="Trending 1">
                 <div class="card-body text-center">
-                    <h5 class="card-title small">{{ product.name }}</h5>
-                    <p class="text-muted mb-1">£{{ product.price }}</p>
-                    <a href="{% url 'product_detail' product.id %}" class="btn btn-dark btn-sm w-100">
-                        View
-                    </a>
+                    <h6 class="fw-bold">Trending Look #1</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
                 </div>
-
             </div>
         </div>
-        {% endfor %}
+
+        <!-- ITEM 2 -->
+        <div class="col-md-3 col-6">
+            <div class="card trending-card shadow-sm">
+                <img src="{% static 'images/greynewhoodie.jpg' %}" alt="Trending 2">
+                <div class="card-body text-center">
+                    <h6 class="fw-bold">Trending Look #2</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="col-md-3 col-6">
+            <div class="card trending-card shadow-sm">
+                <img src="{% static 'images/blackgraphictshirt.jpg' %}" alt="Trending 3">
+                <div class="card-body text-center">
+                    <h6 class="fw-bold">Trending Look #3</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="col-md-3 col-6">
+            <div class="card trending-card shadow-sm">
+                <img src="{% static 'images/denimjacketisolated.jpg' %}" alt="Trending 4">
+                <div class="card-body text-center">
+                    <h6 class="fw-bold">Trending Look #4</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                </div>
+            </div>
+        </div>
 
     </div>
+
 </section>
 
 {% endblock %}
+

@@ -2,8 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.db.models import Q
 from decimal import Decimal
-from django.core.paginator import Paginator
-
 
 def product_list(request):
     products = Product.objects.all()
@@ -15,7 +13,6 @@ def product_list(request):
     sort = request.GET.get('sort')
     min_price = request.GET.get('min_price')
     max_price = request.GET.get('max_price')
-    page_size = request.GET.get('page_size', 12)  # default: 12 products per page
 
     # Search filtering
     if search_query:
@@ -43,26 +40,14 @@ def product_list(request):
         products = products.order_by("name")
     elif sort == "name_desc":
         products = products.order_by("-name")
-    elif sort == "rating_desc":
-        products = products.order_by("-rating")
-
-    # PAGINATION
-    paginator = Paginator(products, int(page_size))
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
 
     context = {
-        "products": page_obj,   # paginated products
-        "page_obj": page_obj,
-        "paginator": paginator,
-
-        # filters
+        "products": products,
         "categories": categories,
         "selected_categories": selected_categories,
         "sort": sort,
         "min_price": min_price,
         "max_price": max_price,
-        "page_size": int(page_size),
     }
 
     return render(request, "products/products.html", context)
