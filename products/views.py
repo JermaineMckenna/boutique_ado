@@ -43,7 +43,7 @@ def product_list(request):
 
     context = {
         "products": products,
-        "categories": categories,
+        "categories": categories,              # <-- FIXED
         "selected_categories": selected_categories,
         "sort": sort,
         "min_price": min_price,

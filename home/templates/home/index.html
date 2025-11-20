@@ -3,43 +3,11 @@
 
 {% block content %}
 
-<style>
-    /* CATEGORY IMAGE */
-    .category-card img {
-        transition: transform 0.4s ease;
-        height: 260px;
-        width: 100%;
-        object-fit: cover;
-    }
-    .category-card:hover img {
-        transform: scale(1.05);
-    }
-
-    /* TRENDING CARD EFFECT */
-    .trending-card {
-        transition: all 0.3s ease;
-        border-radius: 14px;
-        overflow: hidden;
-    }
-    .trending-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .trending-card img {
-        height: 260px;
-        width: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-    }
-    .trending-card:hover img {
-        transform: scale(1.07);
-    }
-</style>
-
 <!-- ===================== HERO SECTION ===================== -->
-<section class="hero-section text-center text-white d-flex align-items-center justify-content-center"
-         style="height: 65vh; background: url('{% static "images/hero.jpg" %}') center/cover no-repeat;">
-    <div class="bg-dark bg-opacity-50 p-5 rounded">
+<section class="hero-section text-white d-flex align-items-center justify-content-center"
+         style="background-image: url('{% static "images/hero.jpg" %}');">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner text-center">
         <h1 class="display-4 fw-bold">Style. Comfort. Confidence.</h1>
         <p class="lead mt-3">Discover premium clothing designed for modern everyday life.</p>
         <a href="{% url 'products' %}" class="btn btn-light btn-lg mt-3 px-4">
@@ -48,12 +16,13 @@
     </div>
 </section>
 
+<div class="container">
+
 <!-- ===================== FEATURED CATEGORIES ===================== -->
 <section class="container py-5">
-
     <h2 class="text-center mb-1">Shop by Category</h2>
     <p class="text-center text-muted small mb-4">
-        Designed & Developed by <strong>Jermaine McKenna</strong>
+        Designed &amp; Developed by <strong>Jermaine McKenna</strong>
     </p>
 
     <div class="row g-4">
@@ -61,8 +30,8 @@
         <div class="col-md-4">
             <a href="/products/?category=T-Shirts" class="text-decoration-none text-dark">
                 <div class="category-card shadow-sm rounded overflow-hidden">
-                    <img src="{% static 'images/plainwhitetshirt.jpg' %}" class="img-fluid">
-                    <h4 class="text-center py-3">T-Shirts</h4>
+                    <img src="{% static 'images/plainwhitetshirt.jpg' %}" class="img-fluid" alt="T-Shirts">
+                    <h4 class="text-center py-3 mb-0">T-Shirts</h4>
                 </div>
             </a>
         </div>
@@ -70,8 +39,8 @@
         <div class="col-md-4">
             <a href="/products/?category=Hoodies" class="text-decoration-none text-dark">
                 <div class="category-card shadow-sm rounded overflow-hidden">
-                    <img src="{% static 'images/oversizedbeigehoodie.jpg' %}" class="img-fluid">
-                    <h4 class="text-center py-3">Hoodies</h4>
+                    <img src="{% static 'images/oversizedbeigehoodie.jpg' %}" class="img-fluid" alt="Hoodies">
+                    <h4 class="text-center py-3 mb-0">Hoodies</h4>
                 </div>
             </a>
         </div>
@@ -79,8 +48,8 @@
         <div class="col-md-4">
             <a href="/products/?category=Jackets" class="text-decoration-none text-dark">
                 <div class="category-card shadow-sm rounded overflow-hidden">
-                    <img src="{% static 'images/blackbomberjacket.jpg' %}" class="img-fluid">
-                    <h4 class="text-center py-3">Jackets</h4>
+                    <img src="{% static 'images/blackbomberjacket.jpg' %}" class="img-fluid" alt="Jackets">
+                    <h4 class="text-center py-3 mb-0">Jackets</h4>
                 </div>
             </a>
         </div>
@@ -90,61 +59,55 @@
 
 <!-- ===================== TRENDING PICKS ===================== -->
 <section class="container py-5">
-
     <h2 class="text-center mb-1">Trending Picks</h2>
     <p class="text-center text-muted small mb-4">
-        Designed & Developed by <strong>Jermaine McKenna</strong>
+        Designed &amp; Developed by <strong>Jermaine McKenna</strong>
     </p>
 
     <div class="row g-4">
 
-        <!-- ITEM 1 -->
         <div class="col-md-3 col-6">
             <div class="card trending-card shadow-sm">
-                <img src="{% static 'images/slimfitjeans.jpg' %}" alt="Trending 1">
+                <img src="{% static 'images/slimfitjeans.jpg' %}" alt="Trending look 1">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Trending Look #1</h6>
-                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                    <h6 class="fw-bold mb-2">Trending Look #1</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100">Explore</a>
                 </div>
             </div>
         </div>
 
-        <!-- ITEM 2 -->
         <div class="col-md-3 col-6">
             <div class="card trending-card shadow-sm">
-                <img src="{% static 'images/greynewhoodie.jpg' %}" alt="Trending 2">
+                <img src="{% static 'images/greynewhoodie.jpg' %}" alt="Trending look 2">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Trending Look #2</h6>
-                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                    <h6 class="fw-bold mb-2">Trending Look #2</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100">Explore</a>
                 </div>
             </div>
         </div>
 
-        <!-- ITEM 3 -->
         <div class="col-md-3 col-6">
             <div class="card trending-card shadow-sm">
-                <img src="{% static 'images/blackgraphictshirt.jpg' %}" alt="Trending 3">
+                <img src="{% static 'images/blackgraphictshirt.jpg' %}" alt="Trending look 3">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Trending Look #3</h6>
-                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                    <h6 class="fw-bold mb-2">Trending Look #3</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100">Explore</a>
                 </div>
             </div>
         </div>
 
-        <!-- ITEM 4 -->
         <div class="col-md-3 col-6">
             <div class="card trending-card shadow-sm">
-                <img src="{% static 'images/denimjacketisolated.jpg' %}" alt="Trending 4">
+                <img src="{% static 'images/denimjacketisolated.jpg' %}" alt="Trending look 4">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Trending Look #4</h6>
-                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100 mt-2">Explore</a>
+                    <h6 class="fw-bold mb-2">Trending Look #4</h6>
+                    <a href="{% url 'products' %}" class="btn btn-dark btn-sm w-100">Explore</a>
                 </div>
             </div>
         </div>
 
     </div>
-
 </section>
+</div>
 
 {% endblock %}
-

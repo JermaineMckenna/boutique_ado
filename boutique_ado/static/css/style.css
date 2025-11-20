@@ -1,0 +1,201 @@
+/* =========================
+   GLOBAL BASE STYLES
+========================= */
+
+body {
+	padding-top: 80px;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	background-color: #f8f9fa;
+	color: #212529;
+}
+
+.site-main {
+	min-height: calc(100vh - 220px);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+	background: #ffffff !important;
+	border-bottom: 1px solid #e5e5e5;
+	z-index: 1030;
+}
+
+.navbar .container {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+}
+
+.navbar-nav {
+	display: flex !important;
+	align-items: center !important;
+	gap: 20px;
+}
+
+.navbar form.d-flex {
+	width: 100%;
+	max-width: 450px;
+	justify-content: center;
+}
+
+/* FIXED — proper @ added */
+@media (max-width: 767.98px) {
+	.navbar-search {
+		width: 100%;
+		margin-top: 0.5rem;
+	}
+}
+
+/* =========================
+   HERO SECTION (Homepage)
+========================= */
+
+.hero-section {
+	position: relative;
+	height: 65vh;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 600px;
+}
+
+/* =========================
+   CATEGORY + TRENDING CARDS
+========================= */
+
+/* Restores homepage card images */
+.category-card img,
+.trending-card img,
+.card-img-top {
+	height: 260px;
+	width: 100%;
+	object-fit: cover;
+	transition: transform 0.35s ease;
+}
+
+.category-card:hover img,
+.trending-card:hover img {
+	transform: scale(1.05);
+}
+
+.trending-card {
+	border-radius: 14px;
+	overflow: hidden;
+	transition: 0.25s ease;
+}
+
+.trending-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   PRODUCTS PAGE
+========================= */
+
+/* PRODUCT CARD — ASOS / ZARA STYLE */
+.product-card {
+	border-radius: 12px;
+	overflow: hidden;
+	transition: 0.25s ease;
+}
+
+.product-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* TALL, CONSISTENT ZARA IMAGE CROP */
+.product-img-wrapper {
+	width: 100%;
+	height: 320px;
+	overflow: hidden;
+}
+
+.product-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* =========================
+   FILTER CARD
+========================= */
+
+.filters-card {
+    border-radius: 8px;
+    background: #fff;
+}
+
+.filters-card h6 {
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 767px) {
+    .filters-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* =========================
+   CART PAGE
+========================= */
+
+.cart-img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 10px;
+	box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+	padding-top: 40px !important;
+	padding-bottom: 40px !important;
+}
+
+.footer .row > div {
+	margin-bottom: 20px;
+}
+
+.footer-link {
+	color: #ccc !important;
+}
+
+.footer-link:hover {
+	color: #fff !important;
+}
+
+@media (max-width: 767.98px) {
+	.footer .row > div {
+		text-align: center;
+	}
+}
+
+#mainNav.collapse:not(.show) {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+
+
+
