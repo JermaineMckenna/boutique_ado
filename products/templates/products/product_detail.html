@@ -6,18 +6,16 @@
     <div class="row g-4">
 
         <!-- IMAGE -->
-        <div class="col-md-6 text-center">
-            <div class="product-detail-image-wrapper">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
-                {% elif product.image_url %}
-                    <img src="{{ product.image_url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
-                {% else %}
-                    <img src="https://via.placeholder.com/600x600?text=No+Image"
-                         class="img-fluid rounded shadow-sm" alt="No image">
-                {% endif %}
-            </div>
-        </div>
+        <div class="product-img-wrapper mb-4">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" class="product-img" alt="{{ product.name }}">
+    {% elif product.image_url %}
+    <img src="{{ product.image_url }}" class="product-img" alt="{{ product.name }}">
+    {% else %}
+    <img src="https://via.placeholder.com/600x600?text=No+Image"
+         class="product-img" alt="No image">
+    {% endif %}
+       </div>
 
         <!-- PRODUCT DETAILS -->
         <div class="col-md-6">
