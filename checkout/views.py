@@ -1,41 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from decimal import Decimal
-
-from products.models import Product
-from cart.views import view_cart  # not required, but fine
+from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from products.models import Product
 
+def checkout(request):
+    cart = request.session.get('cart', {})
 
-def _cart_to_context(request):
-    cart = request.session.get("cart", {})
+    if not cart:
+        return redirect('products')  # Empty cart → send back
+
     items = []
-    total = Decimal("0.00")
+    total = 0
 
-    for product_id, qty in cart.items():
-        product = Product.objects.get(pk=product_id)
+    for item_id, qty in cart.items():
+        product = get_object_or_404(Product, pk=item_id)
         subtotal = product.price * qty
+        total += subtotal
 
         items.append({
             "product": product,
             "quantity": qty,
             "subtotal": subtotal,
         })
-
-        total += subtotal
-
-    return items, total
-
-
-def checkout(request):
-    cart = request.session.get("cart", {})
-
-    if not cart:
-        messages.info(request, "Your cart is empty.")
-        return redirect("products")
-
-    items, total = _cart_to_context(request)
 
     if request.method == "POST":
         form = OrderForm(request.POST)
@@ -44,7 +31,7 @@ def checkout(request):
             order.order_total = total
             order.save()
 
-            # Save line items
+            # Create line items
             for item in items:
                 OrderLineItem.objects.create(
                     order=order,
@@ -55,22 +42,22 @@ def checkout(request):
 
             # Clear cart
             request.session["cart"] = {}
-
-            return redirect("checkout_success", order.id)
-
-        else:
-            messages.error(request, "Please check your form details.")
+            return redirect('checkout_success', order_number=order.order_number)
     else:
         form = OrderForm()
 
-    return render(request, "checkout/checkout.html", {
-        "form": form,
+    context = {
         "items": items,
         "total": total,
+        "form": form,
+    }
+    return render(request, "checkout/checkout.html", context)
+
+
+def checkout_success(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    return render(request, "checkout/success.html", {
+        "order": order,
     })
-
-
-def checkout_success(request, order_id):
-    order = get_object_or_404(Order, pk=order_id)
-    return render(request, "checkout/checkout_success.html", {"order": order})
 
