@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'profiles',
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 SITE_ID = 1
 
@@ -83,6 +88,10 @@ TEMPLATES = [
         },
     },
 ]
+
+# 👇 THIS is the missing part
+ACCOUNT_TEMPLATE_EXTENSION = "html"
+ACCOUNT_TEMPLATE_DIRECTORY = "account"
 
 
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
